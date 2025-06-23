@@ -10,9 +10,9 @@ int main() {
     while (true) {
         int distance = 100 + std::rand() % 50;
 
-        // Don't use std::endl (it adds newline + flush), use explicit flush
+        // Critical part: print with \n and flush right after
         std::cout << "Distance: " << distance << " cm\n";
-        std::cout.flush();  // Force immediate output
+        std::cout.flush();  // Force output to flush immediately
 
         std::this_thread::sleep_for(std::chrono::milliseconds(300));
     }
