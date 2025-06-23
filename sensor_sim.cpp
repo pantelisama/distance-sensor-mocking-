@@ -5,14 +5,16 @@
 #include <chrono>
 
 int main() {
+    std::ios::sync_with_stdio(true);  // use C-style flushing
+
     std::srand(static_cast<unsigned>(std::time(nullptr)));
 
     while (true) {
         int distance = 100 + std::rand() % 50;
 
-        // Critical part: print with \n and flush right after
-        std::cout << "Distance: " << distance << " cm\n";
-        std::cout.flush();  // Force output to flush immediately
+        // Flush with \n and force stdio to flush
+        std::printf("Distance: %d cm\n", distance);
+        std::fflush(stdout);  // force flush now
 
         std::this_thread::sleep_for(std::chrono::milliseconds(300));
     }
