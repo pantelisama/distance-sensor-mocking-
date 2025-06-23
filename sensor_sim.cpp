@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <thread>  // for sleep
+#include <thread>
 #include <chrono>
 
 int main() {
@@ -9,9 +9,11 @@ int main() {
 
     while (true) {
         int distance = 100 + std::rand() % 50;
-        std::cout << "Distance: " << distance << " cm" << std::endl;
 
-        // Sleep for ~300ms between readings
+        // Don't use std::endl (it adds newline + flush), use explicit flush
+        std::cout << "Distance: " << distance << " cm\n";
+        std::cout.flush();  // Force immediate output
+
         std::this_thread::sleep_for(std::chrono::milliseconds(300));
     }
 
