@@ -3,7 +3,7 @@
 #include <ctime>
 #include <thread>  // for sleep
 #include <chrono>
-//// bitbucket_ validation
+////// bitbucket_ validation
 int main() {
     std::srand(static_cast<unsigned>(std::time(nullptr)));
 
